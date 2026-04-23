@@ -1,36 +1,76 @@
-<body>
-  <div class="container">
-    <!-- HEADER -->
-    <div class="card header">
-      <h1 id="time">10:45:22</h1>
-      <p id="date">Tuesday, January 27, 2026</p>
-      <h2 id="greeting">Good Morning</h2>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Life Dashboard</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- HEADER -->
+      <div class="card header">
+        <h1 id="time">00:00:00</h1>
+        <p id="date">Loading date...</p>
+        <h2 id="greeting">Good Morning</h2>
+      </div>
+
+      <!-- TIMER -->
+      <div class="card">
+        <h3>Focus Timer</h3>
+        <p id="timerStatus">Focus Time</p>
+        <div class="timer-display" id="timer">25:00</div>
+
+        <div class="timer-controls">
+          <button id="start">Start</button>
+          <button id="stop">Stop</button>
+          <button id="reset">Reset</button>
+        </div>
+      </div>
+
+      <!-- TASKS -->
+      <div class="card">
+        <h3>Tasks</h3>
+
+        <div class="task-input-group">
+          <input id="taskInput" placeholder="Add a new task..." />
+          <button id="addTask">Add</button>
+        </div>
+
+        <!-- ADD THIS -->
+        <div id="sortContainer" style="display: none; margin-bottom: 10px">
+          <label for="sortSelect" style="font-size: 0.9em; color: #888"
+            >Sort by:</label
+          >
+          <select id="sortSelect">
+            <option value="default">Default (Added Order)</option>
+            <option value="alpha-asc">A → Z</option>
+            <option value="alpha-desc">Z → A</option>
+            <option value="modified-newest">Last Modified (Newest)</option>
+            <option value="modified-oldest">Last Modified (Oldest)</option>
+          </select>
+        </div>
+
+        <ul id="taskList"></ul>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="card">
+        <h3>Quick Links</h3>
+
+        <div class="link-input-group">
+          <input id="linkName" placeholder="Link name" />
+          <input id="linkURL" placeholder="URL (e.g. google.com)" />
+          <button id="addLink">Add Link</button>
+        </div>
+
+        <div class="links-grid" id="linksContainer"></div>
+      </div>
     </div>
 
-    <!-- TIMER -->
-    <div class="card">
-      <h3>Focus Timer</h3>
-      <h1 id="timer">25:00</h1>
-      <button id="start">Start</button>
-      <button id="stop">Stop</button>
-      <button id="reset">Reset</button>
-    </div>
-
-    <!-- TASKS -->
-    <div class="card">
-      <h3>Tasks</h3>
-      <input id="taskInput" placeholder="Add a new task..." />
-      <button id="addTask">Add</button>
-      <ul id="taskList"></ul>
-    </div>
-
-    <!-- QUICK LINKS -->
-    <div class="card">
-      <h3>Quick Links</h3>
-      <input id="linkName" placeholder="Name" />
-      <input id="linkURL" placeholder="URL" />
-      <button id="addLink">Add Link</button>
-      <div id="linksContainer"></div>
-    </div>
-  </div>
-</body>
+    <script src="./app.js"></script>
+  </body>
+</html>
